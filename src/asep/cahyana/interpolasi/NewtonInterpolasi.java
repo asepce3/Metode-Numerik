@@ -11,14 +11,22 @@ public class NewtonInterpolasi {
         List<Item> items = new ArrayList<>();
         Item item = init(x);
         items.add(item);
-        int index = 0;
         if (item.getFfX() != 0) {
+            int index = 0;
             Item nextItem;
-            do {
-                nextItem = next(items.get(index));
-                items.add(nextItem);
-                index++;
-            } while (nextItem.getErX() != 0 && nextItem.getErX() > xtol);
+            if (xtol != 0) {
+                do {
+                    nextItem = next(items.get(index));
+                    items.add(nextItem);
+                    index++;
+                } while (nextItem.getErX() != 0 && nextItem.getErX() > xtol);
+            } else {
+                do {
+                    nextItem = next(items.get(index));
+                    items.add(nextItem);
+                    index++;
+                } while (nextItem.getFfX() != 0 && items.get(index-1).getFfX() != nextItem.getFfX());
+            }
         }
 
         return items;

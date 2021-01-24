@@ -5,7 +5,7 @@ import java.util.List;
 public class App {
 
     private static double NILAI_AWAL_X = 25;
-    private static double XTOL = 0.00;
+    private static double XTOL = 0.0;
 
     public static void main(String[] args) {
 
