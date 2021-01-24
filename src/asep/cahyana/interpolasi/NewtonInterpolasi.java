@@ -83,7 +83,7 @@ public class NewtonInterpolasi {
 
     /**
      * Fungsi Erx
-     * Erx = |x1 - x0| / 1 + |x1|
+     * Erx = |x1 - x0| / (1 + |x1|)
      */
     private double erX(double x0, double x1) {
         double x0TwoDigits = Utils.inRoundTwoDigits(x0);
