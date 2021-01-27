@@ -1,6 +1,5 @@
 package asep.cahyana.falsi;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class App {
@@ -10,21 +9,11 @@ public class App {
 
     public static void main(String[] args) {
         Falsi falsi = new Falsi();
-        List<Item> items = new ArrayList<>();
-
-        Item item = falsi.init(NILAI_AWAL_1, NILAI_AWAL_2);
-        items.add(item);
-        int z = 0;
-        while (item.getFc() != 0.00 && z < 15) {
-            item = falsi.next(items.get(z));
-            items.add(item);
-            z++;
-        }
+        List<Item> items = falsi.falsi(NILAI_AWAL_1, NILAI_AWAL_2);
 
         StringBuilder sb = new StringBuilder(items.size()*2);
-        for (int i=0; i<items.size(); i++) {
-            System.out.println(i + "\t" + items.get(i));
-            sb.append(items.get(i)).append("\n");
+        for (Item item : items) {
+            sb.append(item).append("\n");
         }
 
         // ini hasil dari perhitungan manual
@@ -41,7 +30,10 @@ public class App {
                 "0.48\t-0.06\t0.51\t0.03\t0.33\t0.49\t-0.03\n" +
                 "0.49\t-0.03\t0.51\t0.03\t0.50\t0.50\t0.00\n";
 
-        System.out.println(harusnya);
+        for (int i=0; i<items.size(); i++) {
+            System.out.println(i + "\t" + items.get(i));
+        }
+        System.out.println("=====");
         System.out.println(sb.toString().equals(harusnya));
     }
 }

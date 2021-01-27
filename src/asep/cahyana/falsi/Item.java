@@ -1,7 +1,5 @@
 package asep.cahyana.falsi;
 
-import static asep.cahyana.Utils.inRoundTwoDigits;
-
 public class Item {
     private int iterasi;
     private double a;
@@ -17,13 +15,13 @@ public class Item {
 
     public Item(int iterasi, double a, double fa, double b, double fb, double w, double c, double fc) {
         this.iterasi = iterasi;
-        this.a = inRoundTwoDigits(a);
-        this.fa = inRoundTwoDigits(fa);
-        this.b = inRoundTwoDigits(b);
-        this.fb = inRoundTwoDigits(fb);
-        this.w = inRoundTwoDigits(w);
-        this.c = inRoundTwoDigits(c);
-        this.fc = inRoundTwoDigits(fc);
+        this.a = a;
+        this.fa = fa;
+        this.b = b;
+        this.fb = fb;
+        this.w = w;
+        this.c = c;
+        this.fc = fc;
     }
 
     public int getIterasi() {
@@ -39,7 +37,7 @@ public class Item {
     }
 
     public void setA(double a) {
-        this.a = inRoundTwoDigits(a);
+        this.a = a;
     }
 
     public double getFa() {
@@ -47,7 +45,7 @@ public class Item {
     }
 
     public void setFa(double fa) {
-        this.fa = inRoundTwoDigits(fa);
+        this.fa = fa;
     }
 
     public double getB() {
@@ -55,7 +53,7 @@ public class Item {
     }
 
     public void setB(double b) {
-        this.b = inRoundTwoDigits(b);
+        this.b = b;
     }
 
     public double getFb() {
@@ -63,7 +61,7 @@ public class Item {
     }
 
     public void setFb(double fb) {
-        this.fb = inRoundTwoDigits(fb);
+        this.fb = fb;
     }
 
     public double getW() {
@@ -71,7 +69,7 @@ public class Item {
     }
 
     public void setW(double w) {
-        this.w = inRoundTwoDigits(w);
+        this.w = w;
     }
 
     public double getC() {
@@ -79,7 +77,7 @@ public class Item {
     }
 
     public void setC(double c) {
-        this.c = inRoundTwoDigits(c);
+        this.c = c;
     }
 
     public double getFc() {
@@ -87,7 +85,7 @@ public class Item {
     }
 
     public void setFc(double fc) {
-        this.fc = inRoundTwoDigits(fc);
+        this.fc = fc;
     }
 
     @Override

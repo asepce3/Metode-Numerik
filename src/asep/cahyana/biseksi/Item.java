@@ -1,7 +1,5 @@
 package asep.cahyana.biseksi;
 
-import asep.cahyana.Utils;
-
 public class Item {
     private int iterasi;
     private double a;
@@ -16,12 +14,12 @@ public class Item {
 
     public Item(int iterasi, double a, double fa, double b, double fb, double c, double fc) {
         this.iterasi = iterasi;
-        this.a = Utils.inRoundTwoDigits(a);
-        this.fa = Utils.inRoundTwoDigits(fa);
-        this.b = Utils.inRoundTwoDigits(b);
-        this.fb = Utils.inRoundTwoDigits(fb);
-        this.c = Utils.inRoundTwoDigits(c);
-        this.fc = Utils.inRoundTwoDigits(fc);
+        this.a = a;
+        this.fa = fa;
+        this.b = b;
+        this.fb = fb;
+        this.c = c;
+        this.fc = fc;
     }
 
     public int getIterasi() {
@@ -37,7 +35,7 @@ public class Item {
     }
 
     public void setA(double a) {
-        this.a = Utils.inRoundTwoDigits(a);
+        this.a = a;
     }
 
     public double getFa() {
@@ -45,7 +43,7 @@ public class Item {
     }
 
     public void setFa(double fa) {
-        this.fa = Utils.inRoundTwoDigits(fa);
+        this.fa = fa;
     }
 
     public double getB() {
@@ -53,7 +51,7 @@ public class Item {
     }
 
     public void setB(double b) {
-        this.b = Utils.inRoundTwoDigits(b);
+        this.b = b;
     }
 
     public double getFb() {
@@ -61,7 +59,7 @@ public class Item {
     }
 
     public void setFb(double fb) {
-        this.fb = Utils.inRoundTwoDigits(fb);
+        this.fb = fb;
     }
 
     public double getC() {
@@ -69,7 +67,7 @@ public class Item {
     }
 
     public void setC(double c) {
-        this.c = Utils.inRoundTwoDigits(c);
+        this.c = c;
     }
 
     public double getFc() {
@@ -77,7 +75,7 @@ public class Item {
     }
 
     public void setFc(double fc) {
-        this.fc = Utils.inRoundTwoDigits(fc);;
+        this.fc = fc;
     }
 
     @Override

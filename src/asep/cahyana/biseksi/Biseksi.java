@@ -2,25 +2,46 @@ package asep.cahyana.biseksi;
 
 import asep.cahyana.Utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Biseksi {
 
-    public Item init(double a, double b) {
+    public List<Item> biseksi(double a, double b) {
+        List<Item> items = new ArrayList<>();
+        Item item = init(a, b);
+        items.add(item);
+        int z = 0;
+        while(item.getFc() != 0) {
+            item = next(items.get(z));
+            items.add(item);
+
+            // cek apakah nilai c sama berturut-turut
+            if (item.getC() == items.get(z).getC())
+                break;
+            z++;
+        }
+
+        return items;
+    }
+
+    private Item init(double a, double b) {
         Item item = new Item();
         item.setA(a);
-        item.setFa(biseksi(Utils.inRoundTwoDigits(a)));
+        item.setFa(biseksi(a));
         item.setB(b);
-        item.setFb(biseksi(Utils.inRoundTwoDigits(b)));
-        item.setC(c(Utils.inRoundTwoDigits(a), Utils.inRoundTwoDigits(b)));
+        item.setFb(biseksi(b));
+        item.setC(c(a, b));
         item.setFc(biseksi(item.getC()));
 
         return item;
     }
 
-    public Item next(Item item) {
+    private Item next(Item item) {
         if (item.getFc() > 0) {
             double b = item.getC();
             double fb = item.getFc();
-            double c = c(item.getA(), Utils.inRoundTwoDigits(b));
+            double c = c(item.getA(), b);
             return new Item(
                     0,
                     item.getA(),
@@ -28,12 +49,12 @@ public class Biseksi {
                     b,
                     fb,
                     c,
-                    biseksi(Utils.inRoundTwoDigits(c))
+                    biseksi(c)
             );
         } else {
             double a = item.getC();
             double fa = item.getFc();
-            double c = c(Utils.inRoundTwoDigits(a), item.getB());
+            double c = c(a, item.getB());
             return new Item(
                     0,
                     a,
@@ -41,7 +62,7 @@ public class Biseksi {
                     item.getB(),
                     item.getFb(),
                     c,
-                    biseksi(Utils.inRoundTwoDigits(c))
+                    biseksi(c)
             );
         }
     }
@@ -51,13 +72,20 @@ public class Biseksi {
      * f(x) = x^2 - 2x - 2
      */
     private double biseksi(double bil) {
-        return Math.pow(bil, 2) - 2 * bil - 2;
+        double bilTwo = Utils.inRoundTwoDigits(bil);
+        double result = Math.pow(bilTwo, 2) - 2 * bilTwo- 2;
+
+        return Utils.inRoundTwoDigits(result);
     }
 
     /**
      * c = (a+b) / 2
      */
     private double c(double a, double b) {
-        return (a+b) / 2;
+        double aTwo = Utils.inRoundTwoDigits(a);
+        double bTwo = Utils.inRoundTwoDigits(b);
+        double result = (aTwo+bTwo) / 2;
+
+        return Utils.inRoundTwoDigits(result);
     }
 }

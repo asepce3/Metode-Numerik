@@ -1,7 +1,5 @@
 package asep.cahyana.interpolasi;
 
-import asep.cahyana.Utils;
-
 public class Item {
     private double x;
     private double fX;
@@ -9,10 +7,10 @@ public class Item {
     private double erX;
 
     public Item(double x, double fX, double ffX, double erX) {
-        this.x = Utils.inRoundTwoDigits(x);
-        this.fX = Utils.inRoundTwoDigits(fX);
-        this.ffX = Utils.inRoundTwoDigits(ffX);
-        this.erX = Utils.inRoundTwoDigits(erX);
+        this.x = x;
+        this.fX = fX;
+        this.ffX = ffX;
+        this.erX = erX;
     }
 
     public double getX() {
@@ -20,7 +18,7 @@ public class Item {
     }
 
     public void setX(double x) {
-        this.x = Utils.inRoundTwoDigits(x);
+        this.x = x;
     }
 
     public double getfX() {
@@ -28,7 +26,7 @@ public class Item {
     }
 
     public void setfX(double fX) {
-        this.fX = Utils.inRoundTwoDigits(fX);
+        this.fX = fX;
     }
 
     public double getFfX() {
@@ -36,7 +34,7 @@ public class Item {
     }
 
     public void setFfX(double ffX) {
-        this.ffX = Utils.inRoundTwoDigits(ffX);
+        this.ffX = ffX;
     }
 
     public double getErX() {
@@ -44,7 +42,7 @@ public class Item {
     }
 
     public void setErX(double erX) {
-        this.erX = Utils.inRoundTwoDigits(erX);
+        this.erX = erX;
     }
 
     @Override
