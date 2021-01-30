@@ -37,33 +37,69 @@ public class Biseksi {
         return item;
     }
 
+    private boolean isNegative(double bil) {
+        return bil < 0;
+    }
+
     private Item next(Item item) {
-        if (item.getFc() > 0) {
-            double b = item.getC();
-            double fb = item.getFc();
-            double c = c(item.getA(), b);
-            return new Item(
-                    0,
-                    item.getA(),
-                    item.getFa(),
-                    b,
-                    fb,
-                    c,
-                    biseksi(c)
-            );
+        boolean isCNegative = isNegative(item.getFc());
+
+        if (isCNegative) {
+            if (isNegative(item.getFb())) {
+                double b = item.getC();
+                double fb = item.getFc();
+                double c = c(item.getA(), b);
+                return new Item(
+                        0,
+                        item.getA(),
+                        item.getFa(),
+                        b,
+                        fb,
+                        c,
+                        biseksi(c)
+                );
+            } else {
+                double a = item.getC();
+                double fa = item.getFc();
+                double c = c(a, item.getB());
+                return new Item(
+                        0,
+                        a,
+                        fa,
+                        item.getB(),
+                        item.getFb(),
+                        c,
+                        biseksi(c)
+                );
+            }
         } else {
-            double a = item.getC();
-            double fa = item.getFc();
-            double c = c(a, item.getB());
-            return new Item(
-                    0,
-                    a,
-                    fa,
-                    item.getB(),
-                    item.getFb(),
-                    c,
-                    biseksi(c)
-            );
+            if (!isNegative(item.getFb())) {
+                double b = item.getC();
+                double fb = item.getFc();
+                double c = c(item.getA(), b);
+                return new Item(
+                        0,
+                        item.getA(),
+                        item.getFa(),
+                        b,
+                        fb,
+                        c,
+                        biseksi(c)
+                );
+            } else {
+                double a = item.getC();
+                double fa = item.getFc();
+                double c = c(a, item.getB());
+                return new Item(
+                        0,
+                        a,
+                        fa,
+                        item.getB(),
+                        item.getFb(),
+                        c,
+                        biseksi(c)
+                );
+            }
         }
     }
 
